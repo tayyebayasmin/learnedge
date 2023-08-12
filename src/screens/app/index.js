@@ -1,0 +1,5 @@
+export { default as Home } from './home'
+export { default as Profile } from './profile'
+export { default as Store } from './store'
+export { default as ChapterDetails } from './chapterDetails'
+export { default as SubjectDetails } from './subjectDetails'
