@@ -23,6 +23,7 @@ import { Startup, Login } from '../screens/auth';
 import Verification from '../screens/auth/verfication';
 import LiveClassesScreen from '../screens/app/liveClases';
 import VideoPlayback from '../screens/app/video-playback';
+import EditProfile from '../screens/app/edit-profile';
 
 const Stack = createNativeStackNavigator();
 const navigationRef = createNavigationContainerRef();
@@ -45,6 +46,8 @@ const Routes = () => {
         <Stack.Screen name={ScreenNames.STORE} component={Store} />
         <Stack.Screen name={ScreenNames.MY_COURSE} component={MyCourse} />
         <Stack.Screen name={ScreenNames.VERIFY_OTP} component={Verification} />
+        <Stack.Screen name={ScreenNames.EDIT_PROFILE} component={EditProfile} />
+
         <Stack.Screen
           name={ScreenNames.VIDEO_PLAYBACK}
           component={VideoPlayback}

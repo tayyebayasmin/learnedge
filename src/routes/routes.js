@@ -17,5 +17,6 @@ const ScreenNames = {
   MY_COURSE: 'MyCourse',
   VIDEO_PLAYBACK: 'VideoPlayback',
   USER_PROFILE: 'UserProfile',
+  EDIT_PROFILE: 'EditProfile',
 };
 export default ScreenNames;
