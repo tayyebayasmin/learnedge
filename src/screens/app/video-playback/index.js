@@ -107,7 +107,9 @@ const VideoPlayback = ({ navigation, route }) => {
             containerStyle={styles.input}
             innerContainerStyle={styles.input2}
           />
-          <Button containerStyle={styles.btn}>Save</Button>
+          <Button containerStyle={styles.btn} textStyle={styles.btntxt}>
+            Save
+          </Button>
           {community.map(() => {
             return (
               <View
