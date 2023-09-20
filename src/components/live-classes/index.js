@@ -1,26 +1,49 @@
-import React from "react";
-import { TouchableOpacity, View, Image } from "react-native";
-import { Icons } from "../../assets/images";
-import AppColors from "../../utills/AppColors";
-import { CommonStyles } from "../../utills/CommonStyles";
-import { width } from "../../utills/Dimension";
-import { FontFamily } from "../../utills/Fontfamily";
-import { CustomText } from "../texts";
-import styles from "./styles";
-const LiveClasses = ({ title, onPress, time, source, name, rating }) => {
+import React from 'react';
+import { TouchableOpacity, View, Image } from 'react-native';
+import { Icons } from '../../assets/images';
+import { Notificatoin } from '../../assets/SVG';
+import AppColors from '../../utills/AppColors';
+import { CommonStyles } from '../../utills/CommonStyles';
+import { width } from '../../utills/Dimension';
+import { FontFamily } from '../../utills/Fontfamily';
+import { CustomText } from '../texts';
+import styles from './styles';
+const LiveClasses = ({
+  title,
+  onPress,
+  time,
+  source,
+  name,
+  color,
+  notification,
+  subject,
+  smallImage,
+}) => {
   return (
     <TouchableOpacity onPress={onPress} activeOpacity={0.5} style={styles.card}>
       <View style={CommonStyles.rowAlignJustifyCenter}>
-        <Image resizeMode="contain" source={source} />
-        <View style={CommonStyles.paddingLeft_4}>
+        {smallImage ? (
+          <Image
+            source={source}
+            resizeMode={'stretch'}
+            style={{
+              height: width(15),
+              width: width(25),
+              alignSelf: 'flex-start',
+            }}
+          />
+        ) : (
+          <Image resizeMode='contain' source={source} />
+        )}
+        <View style={[CommonStyles.paddingLeft_4, { width: width(65) }]}>
           <View style={CommonStyles.rowAlignJustifyCenter}>
-            <Image resizeMode="contain" source={Icons.star} />
             <CustomText
-              size={3.5}
-              textStyles={CommonStyles.marginLeft_1}
-              font={FontFamily.appFontLight}
+              left
+              size={4}
+              font={FontFamily.appFontMedium}
+              color={color}
             >
-              {rating}
+              {subject}
             </CustomText>
           </View>
           <CustomText left size={4} font={FontFamily.appFontMedium}>
@@ -48,7 +71,7 @@ const LiveClasses = ({ title, onPress, time, source, name, rating }) => {
               </CustomText>
             </View>
           ) : (
-            <View style={[styles.liveNow, { backgroundColor: "#858B99" }]}>
+            <View style={[styles.liveNow, { backgroundColor: '#858B99' }]}>
               <CustomText
                 center
                 size={3}
@@ -58,6 +81,11 @@ const LiveClasses = ({ title, onPress, time, source, name, rating }) => {
               >
                 Live at {time}
               </CustomText>
+            </View>
+          )}
+          {notification && (
+            <View style={{ position: 'absolute', right: width(3) }}>
+              <Notificatoin />
             </View>
           )}
         </View>

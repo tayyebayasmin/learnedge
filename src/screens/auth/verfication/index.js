@@ -1,16 +1,16 @@
-import React, { useRef, useState } from "react";
-import { View, TextInput, TouchableOpacity } from "react-native";
-import { ScreenWrapper } from "react-native-screen-wrapper";
-import { CustomText, Button } from "../../../components";
-import AppColors from "../../../utills/AppColors";
-import { CommonStyles } from "../../../utills/CommonStyles";
-import { height, width } from "../../../utills/Dimension";
-import { FontFamily } from "../../../utills/Fontfamily";
-import styles from "./styles";
-import { ScreenNames } from "../../../routes";
-import { Logo, VerifyOTP } from "../../../assets/SVG";
-import { errorMessage } from "../../../utills/message";
-import { showMessage } from "react-native-flash-message";
+import React, { useRef, useState } from 'react';
+import { View, TextInput, TouchableOpacity } from 'react-native';
+import { ScreenWrapper } from 'react-native-screen-wrapper';
+import { CustomText, Button } from '../../../components';
+import AppColors from '../../../utills/AppColors';
+import { CommonStyles } from '../../../utills/CommonStyles';
+import { height, width } from '../../../utills/Dimension';
+import { FontFamily } from '../../../utills/Fontfamily';
+import styles from './styles';
+import { ScreenNames } from '../../../routes';
+import { Logo, VerifyOTP } from '../../../assets/SVG';
+import { errorMessage } from '../../../utills/message';
+import { showMessage } from 'react-native-flash-message';
 
 const Verification = ({ navigation, route }) => {
   const number = route.params?.number;
@@ -24,7 +24,7 @@ const Verification = ({ navigation, route }) => {
   const [OTP3, setOTP3] = useState();
   console.log(`${OTP}${OTP1}${OTP2}${OTP3}`);
   return (
-    <ScreenWrapper barStyle="dark-content" statusBarColor={AppColors.white}>
+    <ScreenWrapper barStyle='dark-content' statusBarColor={AppColors.white}>
       <View style={styles.mainContainer}>
         <View style={styles.iconStyles}>
           <VerifyOTP />
@@ -47,16 +47,16 @@ const Verification = ({ navigation, route }) => {
             CommonStyles.marginVertical_1,
           ]}
         >
-          {number ?? "03000000000"}
+          {number ?? '03000000000'}
         </CustomText>
 
         <View style={[CommonStyles.row, CommonStyles.marginTop_5]}>
           <TextInput
             ref={ref1}
-            inputMode="numeric"
+            inputMode='numeric'
             maxLength={1}
-            textAlignVertical="center"
-            textAlign="center"
+            textAlignVertical='center'
+            textAlign='center'
             style={styles.input}
             value={OTP}
             onChangeText={(val) => setOTP(val)}
@@ -64,10 +64,10 @@ const Verification = ({ navigation, route }) => {
           />
           <TextInput
             ref={ref2}
-            inputMode="numeric"
+            inputMode='numeric'
             maxLength={1}
-            textAlignVertical="center"
-            textAlign="center"
+            textAlignVertical='center'
+            textAlign='center'
             style={styles.input}
             value={OTP1}
             onChangeText={(val) => setOTP1(val)}
@@ -75,10 +75,10 @@ const Verification = ({ navigation, route }) => {
           />
           <TextInput
             ref={ref3}
-            inputMode="numeric"
+            inputMode='numeric'
             maxLength={1}
-            textAlignVertical="center"
-            textAlign="center"
+            textAlignVertical='center'
+            textAlign='center'
             style={styles.input}
             value={OTP2}
             onChangeText={(val) => setOTP2(val)}
@@ -86,10 +86,10 @@ const Verification = ({ navigation, route }) => {
           />
           <TextInput
             ref={ref4}
-            inputMode="numeric"
+            inputMode='numeric'
             maxLength={1}
-            textAlignVertical="center"
-            textAlign="center"
+            textAlignVertical='center'
+            textAlign='center'
             style={styles.input}
             value={OTP3}
             onChangeText={(val) => setOTP3(val)}
@@ -112,9 +112,9 @@ const Verification = ({ navigation, route }) => {
           onPress={() => {
             const otp = `${OTP}${OTP1}${OTP2}${OTP3}`;
             if (otp.length == 4) {
-              navigation.navigate(ScreenNames.BOTTOM_TAB);
+              navigation.navigate(ScreenNames.DETAILS);
             } else {
-              errorMessage("OTP is Incorrect!");
+              errorMessage('OTP is Incorrect!');
             }
           }}
         >

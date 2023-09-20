@@ -1,7 +1,7 @@
-import React, { forwardRef } from "react";
-import { TextInput, View } from "react-native";
-import AppColors from "../../utills/AppColors";
-import styles from './styles'
+import React, { forwardRef } from 'react';
+import { TextInput, View } from 'react-native';
+import AppColors from '../../utills/AppColors';
+import styles from './styles';
 
 const Input = (
   {
@@ -20,11 +20,10 @@ const Input = (
     autofocus = false,
     value,
     onSubmitEditing,
-    autoCapitalize = 'sentences'
+    autoCapitalize = 'sentences',
   },
   ref
 ) => {
-
   return (
     <View style={[styles.container, containerStyle]}>
       <View style={[styles.innerContainer, innerContainerStyle]}>
@@ -46,11 +45,9 @@ const Input = (
           style={[styles.inputStyle, inputStyle]}
           onSubmitEditing={onSubmitEditing}
         />
-
       </View>
-
     </View>
   );
-}
+};
 
 export default forwardRef(Input);

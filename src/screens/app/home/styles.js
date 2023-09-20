@@ -1,36 +1,36 @@
-import { StyleSheet } from "react-native";
-import AppColors from "../../../utills/AppColors";
-import { width, height } from "../../../utills/Dimension";
-import { FontFamily } from "../../../utills/Fontfamily";
+import { StyleSheet } from 'react-native';
+import AppColors from '../../../utills/AppColors';
+import { width, height } from '../../../utills/Dimension';
+import { FontFamily } from '../../../utills/Fontfamily';
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "white",
+    backgroundColor: 'white',
     flex: 1,
   },
   menu: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     paddingHorizontal: width(5),
     marginTop: width(3),
-    marginBottom:width(1)
+    marginBottom: width(1),
   },
   search: {
-    flexDirection: "row",
+    flexDirection: 'row',
     marginHorizontal: width(5),
     marginVertical: width(5),
   },
-  viewAll:{
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
+  viewAll: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   searchIcon: {
-    backgroundColor: "#7230FD",
+    backgroundColor: '#7230FD',
     padding: width(3.5),
     borderRadius: width(2),
   },
-  outerContainerInput:{
+  outerContainerInput: {
     width: width(80),
   },
   searchInput: {

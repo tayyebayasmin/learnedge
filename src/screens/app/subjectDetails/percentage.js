@@ -1,9 +1,9 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import Svg, { Circle } from "react-native-svg";
-import { CustomText } from "../../../components";
-import AppColors from "../../../utills/AppColors";
-import { FontFamily } from "../../../utills/Fontfamily";
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import Svg, { Circle } from 'react-native-svg';
+import { CustomText } from '../../../components';
+import AppColors from '../../../utills/AppColors';
+import { FontFamily } from '../../../utills/Fontfamily';
 
 export const CircularPercentageWithText = ({ percentage, Icon, color }) => {
   const strokeWidth = 5;
@@ -16,12 +16,12 @@ export const CircularPercentageWithText = ({ percentage, Icon, color }) => {
   const svgHeight = 2 * (radius + strokeWidth);
   const styles = StyleSheet.create({
     container: {
-      alignItems: "center",
+      alignItems: 'center',
     },
     iconContainer: {
-      position: "absolute",
-      alignItems: "center",
-      justifyContent: "center",
+      position: 'absolute',
+      alignItems: 'center',
+      justifyContent: 'center',
       top: radius - 3,
     },
   });
@@ -32,7 +32,7 @@ export const CircularPercentageWithText = ({ percentage, Icon, color }) => {
           r={radius}
           cx={svgWidth / 2}
           cy={svgHeight / 2}
-          fill="transparent"
+          fill='transparent'
           stroke={AppColors.grey50}
           strokeWidth={strokeWidth}
         />
@@ -40,8 +40,14 @@ export const CircularPercentageWithText = ({ percentage, Icon, color }) => {
           r={radius}
           cx={svgWidth / 2}
           cy={svgHeight / 2}
-          fill="transparent"
-          stroke={color}
+          fill='transparent'
+          stroke={
+            percentage < 35
+              ? AppColors.red
+              : percentage < 65
+              ? AppColors.darkBlue
+              : AppColors.green
+          }
           strokeWidth={strokeWidth}
           strokeDasharray={`${circumference} ${circumference}`}
           strokeDashoffset={

@@ -1,27 +1,26 @@
-import React, { useState } from "react";
-import { View, Image, TouchableOpacity, FlatList } from "react-native";
-import { ScreenWrapper } from "react-native-screen-wrapper";
-import { height, width } from "../../../utills/Dimension";
-import { Arrowleft, Play } from "../../../assets/SVG";
-import { CustomText } from "../../../components";
-import AppColors from "../../../utills/AppColors";
-import { FontFamily } from "../../../utills/Fontfamily";
-import styles from "./styles";
-import { CircularPercentageWithText } from "./percentage";
-import { ScreenNames } from "../../../routes";
-import { Icons } from "../../../assets/images";
-import { CommonStyles } from "../../../utills/CommonStyles";
-import { subjectElements } from "../../../utills/dummyData";
-import { CircularPercentageWithIcon } from "./percentageIcon";
+import React, { useState } from 'react';
+import { View, Image, TouchableOpacity, FlatList } from 'react-native';
+import { ScreenWrapper } from 'react-native-screen-wrapper';
+import { height, width } from '../../../utills/Dimension';
+import { Arrowleft, Play } from '../../../assets/SVG';
+import { CustomText } from '../../../components';
+import AppColors from '../../../utills/AppColors';
+import { FontFamily } from '../../../utills/Fontfamily';
+import styles from './styles';
+import { CircularPercentageWithText } from './percentage';
+import { ScreenNames } from '../../../routes';
+import { Icons } from '../../../assets/images';
+import { CommonStyles } from '../../../utills/CommonStyles';
+import { subjectElements } from '../../../utills/dummyData';
+import { CircularPercentageWithIcon } from './percentageIcon';
 
 const SubjectDetails = ({ navigation, route }) => {
   const { color, Icon, name, chapters, lessons, percentage } =
     route.params.data;
-  console.log(route.params.data);
   return (
     <View style={styles.container}>
       <ScreenWrapper
-        barStyle="light-content"
+        barStyle='light-content'
         translucent
         scrollViewProps={{
           showsVerticalScrollIndicator: false,
@@ -33,28 +32,28 @@ const SubjectDetails = ({ navigation, route }) => {
             style={styles.iconLeft}
           >
             <Image
-              source={Icons.circle2}
+              source={Icons.circle}
               style={{
-                position: "absolute",
+                position: 'absolute',
                 width: width(50),
                 marginLeft: -100,
-                tintColor: "white",
+                tintColor: 'white',
               }}
             />
             <Image
               source={Icons.circle}
               style={{
-                position: "absolute",
+                position: 'absolute',
                 width: width(50),
-                tintColor: "white",
+                tintColor: 'white',
               }}
             />
             <Image
               source={Icons.circle}
               style={{
-                position: "absolute",
+                position: 'absolute',
                 width: width(50),
-                tintColor: "white",
+                tintColor: 'white',
               }}
             />
             <Arrowleft />
@@ -86,35 +85,46 @@ const SubjectDetails = ({ navigation, route }) => {
           font={FontFamily.appFontSemiBold}
           textStyles={CommonStyles.marginHorizontal_5}
         >
-          List of elements
+          Chapters
         </CustomText>
         <FlatList
           data={subjectElements}
           showsVerticalScrollIndicator={false}
-          style={{paddingVertical:width(2)}}
-          renderItem={({item, index}) => {
-            console.log(item)
+          style={{ paddingVertical: width(2) }}
+          renderItem={({ item, index }) => {
+            console.log(item);
             return (
-              <TouchableOpacity style={styles.card}
-              onPress={()=>navigation.navigate(ScreenNames.CHAPTER_DETAILS,{
-                data:item,
-                color:color,
-                subjectName:name
-              })}
+              <TouchableOpacity
+                style={styles.card}
+                onPress={() =>
+                  navigation.navigate(ScreenNames.CHAPTER_DETAILS, {
+                    data: item,
+                    color: color,
+                    subjectName: name,
+                  })
+                }
               >
-                <View style={{
-                  flexDirection:'row',
-                  alignItems:'center'
-                }}>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                  }}
+                >
                   <View style={[styles.IconStyle, { backgroundColor: color }]}>
                     {item?.Icon}
                   </View>
                   <CustomText textStyles={styles.name}>{item?.name}</CustomText>
                 </View>
-                <View style={{
-                  width:width(15),
-                }}>
-                <CircularPercentageWithIcon percentage={item?.percentage} Icon={Play} color={color}/>
+                <View
+                  style={{
+                    width: width(15),
+                  }}
+                >
+                  <CircularPercentageWithIcon
+                    percentage={item?.percentage}
+                    Icon={Play}
+                    color={color}
+                  />
                 </View>
               </TouchableOpacity>
             );

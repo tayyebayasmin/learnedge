@@ -1,14 +1,14 @@
-import React from "react";
-import { TouchableOpacity, Text, View } from "react-native";
-import { CommonStyles } from "../../utills/CommonStyles";
-import { FontFamily } from "../../utills/Fontfamily";
-import { CustomText } from "../texts";
-import styles from "./styles";
+import React from 'react';
+import { TouchableOpacity, Text, View } from 'react-native';
+import { CommonStyles } from '../../utills/CommonStyles';
+import { FontFamily } from '../../utills/Fontfamily';
+import { CustomText } from '../texts';
+import styles from './styles';
 const SubjectCard = ({
   title,
   onPress,
   Icon = () => null,
-  color = "red",
+  color = 'red',
   chapters,
 }) => {
   return (
@@ -16,16 +16,13 @@ const SubjectCard = ({
       <View style={[styles.Icon, { backgroundColor: color }]}>
         <Icon />
       </View>
-      <CustomText center size={3.8} font={FontFamily.appFontMedium} textStyles={CommonStyles.marginTop_1}>
-        {title}
-      </CustomText>
       <CustomText
         center
-        size={2.8}
-        textStyles={CommonStyles.marginTop_0_5}
-        font={FontFamily.appFontLight}
+        size={3.8}
+        font={FontFamily.appFontMedium}
+        textStyles={CommonStyles.marginTop_1}
       >
-        {chapters} Chapters
+        {title}
       </CustomText>
     </TouchableOpacity>
   );

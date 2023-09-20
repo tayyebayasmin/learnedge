@@ -1,22 +1,30 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createStackNavigator } from "@react-navigation/stack";
-import * as React from "react";
-import { Image, StyleSheet, View } from "react-native";
-import { Icons } from "../../assets/images";
-import { CustomText } from "../../components";
-import ScreenNames from "../routes";
-import { Home, Profile, Store } from "../../screens/app";
-import AppColors from "../../utills/AppColors";
-import { height, width } from "../../utills/Dimension";
-import { FontFamily } from "../../utills/Fontfamily";
-import { Startup } from "../../screens/auth";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
+import * as React from 'react';
+import { Image, StyleSheet, View } from 'react-native';
+import { Icons } from '../../assets/images';
+import { CustomText, LiveClasses } from '../../components';
+import ScreenNames from '../routes';
+import {
+  Home,
+  LiveClassDetail,
+  MyCourse,
+  Profile,
+  Store,
+} from '../../screens/app';
+import AppColors from '../../utills/AppColors';
+import { height, width } from '../../utills/Dimension';
+import { FontFamily } from '../../utills/Fontfamily';
+import { Startup } from '../../screens/auth';
+import LiveClassesScreen from '../../screens/app/liveClases';
+import UserProfile from '../../screens/app/user-profile';
 const Tab = createBottomTabNavigator();
 
 const Stack = createStackNavigator();
 export default function BottomTab() {
   return (
     <Tab.Navigator
-      initialRouteName="Home"
+      initialRouteName='Home'
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: false,
@@ -53,8 +61,8 @@ export default function BottomTab() {
         })}
       />
       <Tab.Screen
-        name={ScreenNames.STARTUP}
-        component={Startup}
+        name={ScreenNames.LIVE_CLASSES}
+        component={LiveClassesScreen}
         options={() => ({
           tabBarIcon: ({ color, focused }) => (
             <View style={styles.tabView}>
@@ -68,7 +76,7 @@ export default function BottomTab() {
               <CustomText
                 color={focused ? AppColors.purple : AppColors.black30}
               >
-                My Course
+                Live Class
               </CustomText>
               <View
                 style={focused ? styles.focusedBarStyle : styles.barStyle}
@@ -103,8 +111,8 @@ export default function BottomTab() {
         })}
       />
       <Tab.Screen
-        name={ScreenNames.PROFILE}
-        component={Profile}
+        name={ScreenNames.USER_PROFILE}
+        component={UserProfile}
         options={() => ({
           tabBarIcon: ({ color, focused }) => (
             <View style={styles.tabView}>
@@ -132,13 +140,13 @@ export default function BottomTab() {
 }
 const styles = StyleSheet.create({
   iconStyle: {
-    resizeMode: "contain",
+    resizeMode: 'contain',
     width: width(6),
     height: height(3),
     tintColor: AppColors.black,
   },
   tabView: {
-    alignItems: "center",
+    alignItems: 'center',
   },
   focusedBarStyle: {
     height: height(0.4),
@@ -157,7 +165,7 @@ const styles = StyleSheet.create({
     marginTop: height(0.5),
   },
   badge: {
-    position: "absolute",
+    position: 'absolute',
     backgroundColor: AppColors.red,
     zIndex: 10,
     right: width(4),
@@ -165,8 +173,8 @@ const styles = StyleSheet.create({
     borderRadius: width(10),
     width: height(2.5),
     height: height(2.5),
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   badgeText: {
     fontSize: width(3),

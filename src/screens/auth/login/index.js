@@ -1,33 +1,40 @@
-import React, { useState, useRef } from "react";
-import { View, Image } from "react-native";
-import { ScreenWrapper } from "react-native-screen-wrapper";
-import { Icons } from "../../../assets/images";
-import { CustomText, Button } from "../../../components";
-import AppColors from "../../../utills/AppColors";
-import Swiper from "react-native-web-swiper";
-import { CommonStyles } from "../../../utills/CommonStyles";
-import { height, width } from "../../../utills/Dimension";
-import { FontFamily } from "../../../utills/Fontfamily";
-import styles from "./styles";
-import { ScreenNames } from "../../../routes";
-import { Logo } from "../../../assets/SVG";
-import Input from "../../../components/input";
-import { errorMessage } from "../../../utills/message";
+import React, { useState, useRef } from 'react';
+import { View, Image } from 'react-native';
+import { ScreenWrapper } from 'react-native-screen-wrapper';
+import { Icons } from '../../../assets/images';
+import { CustomText, Button } from '../../../components';
+import AppColors from '../../../utills/AppColors';
+import Swiper from 'react-native-web-swiper';
+import { CommonStyles } from '../../../utills/CommonStyles';
+import { height, width } from '../../../utills/Dimension';
+import { FontFamily } from '../../../utills/Fontfamily';
+import styles from './styles';
+import { ScreenNames } from '../../../routes';
+import { Facebook, Google, Logo } from '../../../assets/SVG';
+import Input from '../../../components/input';
+import { errorMessage } from '../../../utills/message';
 
 const Login = ({ navigation }) => {
   const [number, setNumber] = useState();
   return (
     <ScreenWrapper
-      barStyle="dark-content"
+      barStyle='dark-content'
       statusBarColor={AppColors.white}
-      scrollType="scroll"
+      scrollType='scroll'
       scrollViewProps={{
-        showsVerticalScrollIndicator:false
+        showsVerticalScrollIndicator: false,
       }}
     >
       <View style={styles.mainContainer}>
         <View style={styles.imageStyle}>
-          <Logo />
+          <Image
+            source={Icons.logo}
+            style={{
+              width: width(50),
+              height: width(50),
+              marginTop: width(8),
+            }}
+          />
         </View>
         <CustomText
           size={7}
@@ -65,12 +72,12 @@ const Login = ({ navigation }) => {
           </CustomText>
         </View>
         <Input
-          keyboardType="number-pad"
-          placeholder="Enter Your Phone Number"
+          keyboardType='number-pad'
+          placeholder='Enter Your Phone Number'
           value={number}
           onChange={(val) => setNumber(val)}
           innerContainerStyle={styles.input}
-          containerStyle={{width:width(85)}}
+          containerStyle={{ width: width(85) }}
         />
         <Button
           containerStyle={styles.btn}
@@ -79,11 +86,34 @@ const Login = ({ navigation }) => {
               navigation.navigate(ScreenNames.VERIFY_OTP, {
                 number: number,
               });
-            } else errorMessage("Please Enter your Phone Number");
+            } else errorMessage('Please Enter your Phone Number');
           }}
         >
           Get Started !
         </Button>
+        <CustomText size={3.8} textStyles={CommonStyles.marginVertical_2}>
+          Or login with
+        </CustomText>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            width: width(75),
+          }}
+        >
+          <View style={[CommonStyles.rowAlignJustifyCenter, styles.social]}>
+            <Facebook />
+            <CustomText textStyles={CommonStyles.marginLeft_2} size={4}>
+              Facebook
+            </CustomText>
+          </View>
+          <View style={[CommonStyles.rowAlignJustifyCenter, styles.social]}>
+            <Google />
+            <CustomText textStyles={CommonStyles.marginLeft_2} size={4}>
+              Google
+            </CustomText>
+          </View>
+        </View>
       </View>
     </ScreenWrapper>
   );

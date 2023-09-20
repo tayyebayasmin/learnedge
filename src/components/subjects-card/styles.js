@@ -1,13 +1,13 @@
-import { StyleSheet } from "react-native";
-import { width, height } from "../../utills/Dimension";
-import AppColors from "../../utills/AppColors";
+import { StyleSheet } from 'react-native';
+import { width, height } from '../../utills/Dimension';
+import AppColors from '../../utills/AppColors';
 
 const styles = StyleSheet.create({
   card: {
-    paddingTop:width(1),
+    paddingTop: width(1),
     marginVertical: width(1),
     marginRight: width(5),
-    height: height(23),
+    height: height(20),
     borderColor: AppColors.white,
     backgroundColor: AppColors.white,
     width: width(35),
@@ -22,13 +22,13 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   Icon: {
-    marginVertical:width(2),
-    alignSelf:'center',
-    width:width(22),
-    height:width(22),
-    alignItems:'center',
-    justifyContent:'center',
-    backgroundColor: "#7230FD",
+    marginVertical: width(2),
+    alignSelf: 'center',
+    width: width(22),
+    height: width(22),
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#7230FD',
     marginHorizontal: width(1),
     borderRadius: width(5),
   },

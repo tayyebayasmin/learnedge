@@ -1,5 +1,10 @@
-export { default as Home } from './home'
-export { default as Profile } from './profile'
-export { default as Store } from './store'
-export { default as ChapterDetails } from './chapterDetails'
-export { default as SubjectDetails } from './subjectDetails'
+export { default as Home } from './home';
+export { default as Profile } from './profile';
+export { default as Store } from './store';
+export { default as ChapterDetails } from './chapterDetails';
+export { default as SubjectDetails } from './subjectDetails';
+export { default as UserDetails } from './user-details';
+export { default as LiveClassDetail } from './live-class-details';
+export { default as Notifications } from './notifications';
+export { default as TopicDetails } from './topic-detail';
+export { default as MyCourse } from './my-course';

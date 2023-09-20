@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import Svg, { Circle } from 'react-native-svg';
 import AppColors from '../../../utills/AppColors';
 
-export const CircularPercentageWithIcon = ({ percentage, Icon,color }) => {
+export const CircularPercentageWithIcon = ({ percentage, Icon, color }) => {
   const strokeWidth = 5;
   const radius = 22;
   const circumference = 2 * Math.PI * radius;
@@ -20,7 +20,7 @@ export const CircularPercentageWithIcon = ({ percentage, Icon,color }) => {
       position: 'absolute',
       alignItems: 'center',
       justifyContent: 'center',
-      top:radius-3
+      top: radius - 3,
     },
   });
   return (
@@ -30,7 +30,7 @@ export const CircularPercentageWithIcon = ({ percentage, Icon,color }) => {
           r={radius}
           cx={svgWidth / 2}
           cy={svgHeight / 2}
-          fill="transparent"
+          fill='transparent'
           stroke={AppColors.grey50}
           strokeWidth={strokeWidth}
         />
@@ -38,18 +38,21 @@ export const CircularPercentageWithIcon = ({ percentage, Icon,color }) => {
           r={radius}
           cx={svgWidth / 2}
           cy={svgHeight / 2}
-          fill="transparent"
-          stroke={color}
+          fill='transparent'
+          stroke={
+            percentage < 35
+              ? AppColors.red
+              : percentage < 65
+              ? AppColors.darkBlue
+              : AppColors.green
+          }
           strokeWidth={strokeWidth}
           strokeDasharray={`${circumference} ${circumference}`}
-          strokeDashoffset={circumference - (progressDegrees / 360) * circumference}
+          strokeDashoffset={
+            circumference - (progressDegrees / 360) * circumference
+          }
         />
       </Svg>
-      <View style={styles.iconContainer}>
-        <Icon color={color}/>
-      </View>
     </View>
   );
 };
-
-

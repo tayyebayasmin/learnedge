@@ -1,14 +1,21 @@
 const ScreenNames = {
-    STARTUP : 'StartUp',
-    HOME : 'Home',
-    VIDEO:'Video',
-    BOTTOM_TAB:'BottomTab',
-    STORE:'Store',
-    PROFILE:'Profile',
-    LOGIN:'Login',
-    VERIFY_OTP:'Verification',
-    CHAPTER_DETAILS:'ChapterDetails',
-    SUBJECT_DETAILS:'SubjectDetails'
-  }
-  export default ScreenNames;
-  
+  STARTUP: 'StartUp',
+  HOME: 'Home',
+  VIDEO: 'Video',
+  BOTTOM_TAB: 'BottomTab',
+  STORE: 'Store',
+  PROFILE: 'Profile',
+  LOGIN: 'Login',
+  VERIFY_OTP: 'Verification',
+  CHAPTER_DETAILS: 'ChapterDetails',
+  SUBJECT_DETAILS: 'SubjectDetails',
+  DETAILS: 'Details',
+  NOTIFICATIONS: 'Notifications',
+  LIVE_CLASS_DETAILS: 'LiveClassDetails',
+  LIVE_CLASSES: 'LiveClassesScreen',
+  TOPIC_DETAILS: 'TopicDetails',
+  MY_COURSE: 'MyCourse',
+  VIDEO_PLAYBACK: 'VideoPlayback',
+  USER_PROFILE: 'UserProfile',
+};
+export default ScreenNames;

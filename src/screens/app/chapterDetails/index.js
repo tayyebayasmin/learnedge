@@ -1,34 +1,35 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   View,
   Image,
   TouchableOpacity,
   FlatList,
   ScrollView,
-} from "react-native";
-import { ScreenWrapper } from "react-native-screen-wrapper";
-import { height, width } from "../../../utills/Dimension";
-import { Arrowleft, Play } from "../../../assets/SVG";
-import { CustomText } from "../../../components";
-import AppColors from "../../../utills/AppColors";
-import { FontFamily } from "../../../utills/Fontfamily";
-import styles from "./styles";
-import { CircularPercentageWithText } from "./percentage";
-import { ScreenNames } from "../../../routes";
-import { Icons } from "../../../assets/images";
-import { CommonStyles } from "../../../utills/CommonStyles";
-import { subjectElements, Topics } from "../../../utills/dummyData";
-import { CircularPercentageWithIcon } from "./percentageIcon";
+} from 'react-native';
+import { ScreenWrapper } from 'react-native-screen-wrapper';
+import { height, width } from '../../../utills/Dimension';
+import { Arrowleft, Play } from '../../../assets/SVG';
+import { CustomText } from '../../../components';
+import AppColors from '../../../utills/AppColors';
+import { FontFamily } from '../../../utills/Fontfamily';
+import styles from './styles';
+import { CircularPercentageWithText } from './percentage';
+import { ScreenNames } from '../../../routes';
+import { Icons } from '../../../assets/images';
+import { CommonStyles } from '../../../utills/CommonStyles';
+import { subjectElements, Topics } from '../../../utills/dummyData';
+import { CircularPercentageWithIcon } from './percentageIcon';
 
 const ChapterDetails = ({ navigation, route }) => {
-  const { Icon, name, percentage } = route.params.data;
+  const data = route.params.data;
+  const { Icon, name, percentage } = data;
   const color = route.params.color;
   const subjectName = route.params.subjectName;
   console.log(route.params.data);
   return (
     <View style={styles.container}>
       <ScreenWrapper
-        barStyle="light-content"
+        barStyle='light-content'
         translucent
         scrollViewProps={{
           showsVerticalScrollIndicator: false,
@@ -42,26 +43,26 @@ const ChapterDetails = ({ navigation, route }) => {
             <Image
               source={Icons.circle2}
               style={{
-                position: "absolute",
+                position: 'absolute',
                 width: width(50),
                 marginLeft: -100,
-                tintColor: "white",
+                tintColor: 'white',
               }}
             />
             <Image
               source={Icons.circle}
               style={{
-                position: "absolute",
+                position: 'absolute',
                 width: width(50),
-                tintColor: "white",
+                tintColor: 'white',
               }}
             />
             <Image
               source={Icons.circle}
               style={{
-                position: "absolute",
+                position: 'absolute',
                 width: width(50),
-                tintColor: "white",
+                tintColor: 'white',
               }}
             />
             <Arrowleft />
@@ -85,9 +86,9 @@ const ChapterDetails = ({ navigation, route }) => {
               color={AppColors.grey}
               font={FontFamily.appFontMedium}
               size={4}
-              textStyles={{width:width(62)}}
+              textStyles={{ width: width(62) }}
             >
-              CHAPTER: {name}
+              {name}
             </CustomText>
           </View>
           <CircularPercentageWithText percentage={percentage} color={color} />
@@ -109,7 +110,17 @@ const ChapterDetails = ({ navigation, route }) => {
                 <ScrollView horizontal>
                   {item?.Topics.map((i, index) => {
                     return (
-                      <View style={styles.Topics}>
+                      <TouchableOpacity
+                        style={styles.Topics}
+                        onPress={() =>
+                          navigation.navigate(ScreenNames.TOPIC_DETAILS, {
+                            data: data,
+                            item: item,
+                            color: color,
+                            subjectName: subjectName,
+                          })
+                        }
+                      >
                         <Image
                           style={{
                             width: width(25),
@@ -129,7 +140,7 @@ const ChapterDetails = ({ navigation, route }) => {
                         >
                           {i?.name}
                         </CustomText>
-                      </View>
+                      </TouchableOpacity>
                     );
                   })}
                 </ScrollView>
